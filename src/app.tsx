@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 export function App() {
   const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false)
+  const [isGuestsModalOpen, setIsGuestsModalOpen] = useState(false)
 
   function openGuestsInput() {
     setIsGuestsInputOpen(true)
@@ -10,6 +11,10 @@ export function App() {
 
   function closeGuestsInput() {
     setIsGuestsInputOpen(false)
+  }
+
+  function openGuestsModal() {
+    setIsGuestsModalOpen(true)
   }
 
   return (
@@ -49,10 +54,10 @@ export function App() {
 
           {isGuestsInputOpen && (
             <div className="h-16 bg-zinc-900 px-4 rounded-xl flex items-center shadow-shape gap-3">
-              <div className='flex items-center gap-2 flex-1'>
+              <button type='button' onClick={openGuestsModal} className='flex items-center gap-2 flex-1'>
                 <UserRoundPlus className='size-5 text-zinc-400'/>
-                <input type="text" placeholder="Quem estará na viagem?" className="bg-transparent text-lg placeholder-zinc-400 outline-none " />
-              </div>
+                <span className='text-zinc-400 text-lg flex-1 text-left'>Quem estará na viagem?</span>
+              </button>
 
               <div className='w-px h-6 bg-zinc-400' />
 
